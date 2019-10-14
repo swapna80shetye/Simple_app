@@ -42,24 +42,30 @@ public class MainActivity extends AppCompatActivity {
     private void displayFeet(double val) {
         ft = (TextView) findViewById(R.id.display_text);
         ft.setText(String.format(Locale.US, "%.1f", val));
+
     }
 
 
     public void increment(View view) {
         length += 1;
         display(length);
+        double val = (double)length/30;
+        displayFeet(val);
+
     }
 
     public void decrement(View view) {
         length -= 1;
         display(length);
+        double val = (double)length/30;
+        displayFeet(val);
     }
-
+/*
     public void length_in_feet(View view) {
         double val = (double)length/30;
         displayFeet(val);
     }
-
+*/
     public void reset_all(View view) {
         display(150);
         displayFeet(5.0);
