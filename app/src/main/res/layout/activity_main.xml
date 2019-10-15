@@ -6,32 +6,71 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <TextView
             android:id="@+id/intro_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:gravity="center"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
-            android:textStyle="normal"
+            android:text="@string/the_app_label"
             android:textColor="@android:color/holo_blue_dark"
-            android:text="This application helps you convert the height from cm to feet-inches. The idea behind this application is to be able to do the conversion with just one click rather than using a mathematical formula. " />
+            android:textSize="40sp"
+            android:textStyle="normal" />
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/height"
+            android:layout_marginTop="56dp"/>
+
+            <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/buttons_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp">
         <TextView
             android:id="@+id/length_in_cm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/intro_text"
             android:layout_marginLeft="8dp"
-            android:text="Enter your height in cm"
+            android:text="Click on + or - and check your height in feet"
             android:textSize="24sp"
             android:textStyle="italic" />
 
+        <Button
+            android:id="@+id/minus_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/length_in_cm"
+            android:layout_marginLeft="8dp"
+            android:clickable="true"
+            android:onClick="decrement"
+            android:text="-" />
 
+
+        <TextView
+            android:id="@+id/initial_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="150"
+            android:textSize="32sp"
+
+            android:layout_toRightOf="@id/minus_button"
+            android:layout_below="@id/length_in_cm"/>
 
         <Button
             android:id="@+id/plus_button"
@@ -39,29 +78,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/length_in_cm"
             android:clickable="true"
+            android:layout_marginLeft="80dp"
+            android:layout_toRightOf="@id/minus_button"
             android:onClick="increment"
             android:text="+" />
-        <TextView
-            android:id="@+id/edit_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:text="150"
-            android:textSize="32sp"
-
-            android:layout_toRightOf="@id/plus_button"
-            android:layout_below="@id/length_in_cm"/>
-
-        <Button
-            android:id="@+id/minus_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/length_in_cm"
-            android:layout_toRightOf="@id/plus_button"
-            android:clickable="true"
-            android:onClick="decrement"
-            android:layout_marginLeft="80dp"
-            android:text="-" />
 
 
         <TextView
@@ -72,10 +92,10 @@
             android:text="Your height in feet and inches is:"
             android:textSize="24sp"
             android:textStyle="italic"
-            android:layout_below="@id/plus_button"/>
+            android:layout_below="@id/minus_button"/>
 
         <TextView
-            android:id="@+id/display_text"
+            android:id="@+id/calculated_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
@@ -83,16 +103,18 @@
             android:textSize="40sp"
             android:layout_below="@id/length_in_feet"/>
 
-
-
+        </RelativeLayout>
+        </LinearLayout>
         <Button
             android:id="@+id/reset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/display_text"
-            android:layout_marginTop="32dp"
-            android:text="Reset"
+            android:layout_below="@id/calculated_value"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp"
             android:clickable="true"
-            android:onClick="reset_all"/>
-    </RelativeLayout>
+            android:onClick="reset_all"
+            android:text="Reset" />
+
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>

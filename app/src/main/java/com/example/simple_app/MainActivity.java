@@ -13,8 +13,8 @@ import java.util.Locale;
 import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
 
 public class MainActivity extends AppCompatActivity {
-    TextView dt, ft;
-    EditText edT;
+    TextView disp_initial_value, display_final_answer;
+
     int length = 150;
     double val = 0.0;
 
@@ -34,14 +34,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void display(int length) {
-        dt = (TextView) findViewById(R.id.edit_text);
-        dt.setText("" + length);
+        disp_initial_value = (TextView) findViewById(R.id.initial_value);
+        disp_initial_value.setText("" + length );
 
     }
 
     private void displayFeet(double val) {
-        ft = (TextView) findViewById(R.id.display_text);
-        ft.setText(String.format(Locale.US, "%.1f", val));
+        display_final_answer = (TextView) findViewById(R.id.calculated_value);
+        display_final_answer.setText(String.format(Locale.US, "%.1f",val));
 
     }
 
